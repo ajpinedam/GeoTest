@@ -49,11 +49,11 @@ public partial record MainModel
 
         if (accessStatus == GeolocationAccessStatus.Allowed)
         {
-            //var loc = await _geolocator.GetGeopositionAsync();
+            var loc = await _geolocator.GetGeopositionAsync();
             //var loc = await _geolocator.GetGeopositionAsync(TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(10));
             //var lon = loc?.Coordinate.Longitude;
             //loc?.Coordinate.Latitude
-            await Status.Update(x => $"Permission Granted: Current lon {0} and lat: {0}", CancellationToken.None);
+            await Status.Update(x => $"Permission Granted: Current lon {loc.Coordinate.Latitude} and lat: {loc.Coordinate.Longitude}", CancellationToken.None);
 
             _geolocator.PositionChanged += Locator_PositionChanged;
         }

@@ -18,7 +18,9 @@
     <utu:NavigationBar Content="{Binding Title}" />
 
     <TextBlock Grid.Row="1" x:Name="Text1" Text="{Binding Status}" FontSize="33"/>
-    <Button Grid.Row="2" Content="Ask for Permissions" Command="{Binding AskPermissions}" />
+    <Button Grid.Row="2"
+            Content="Ask for Permissions"
+            Click="Button_Click" />
     <ListView ItemsSource="{Binding Locations}"
               Grid.Row="3">
       <ListView.ItemTemplate>
